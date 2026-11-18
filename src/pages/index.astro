@@ -1,0 +1,91 @@
+---
+import '../styles/sakura.css'
+
+// SVG-иконки из набора lineicons (Iconify), как в исходной сборке
+const icons = {
+  telegram:
+    'm21.936 5.17l-3.03 14.185c-.226.999-.806 1.224-1.644.773l-4.545-3.352l-2.225 2.127c-.225.226-.451.452-.967.452l.355-4.675l8.478-7.704c.354-.355-.097-.484-.548-.193l-10.541 6.64l-4.546-1.386c-.999-.322-.999-1 .226-1.45L20.614 3.72c.87-.258 1.612.194 1.322 1.45',
+  tiktok:
+    'M12.438 2.017C13.53 2 14.613 2.008 15.696 2c.067 1.275.525 2.575 1.459 3.475c.933.925 2.25 1.35 3.533 1.492v3.358c-1.2-.042-2.408-.292-3.5-.808c-.475-.217-.917-.492-1.35-.775c-.008 2.433.008 4.866-.017 7.291a6.360 6.360 0 0 1-1.125 3.283c-1.091 1.6-2.983 2.642-4.924 2.675c-1.192.067-2.384-.258-3.4-.858c-1.684-.992-2.867-2.808-3.042-4.758a16 16 0 0 1-.008-1.242c.15-1.583.933-3.1 2.15-4.133c1.383-1.2 3.316-1.775 5.125-1.433c.016 1.233-.034 2.466-.034 3.700c-.825-.267-1.791-.192-2.516.308a2.900 2.900 0 0 0-1.134 1.458c-.175.425-.125.892-.116 1.342c.2 1.366 1.516 2.516 2.916 2.392c.934-.009 1.825-.55 2.309-1.342c.158-.275.333-.559.341-.884c.084-1.491.05-2.975.059-4.466c.008-3.358-.009-6.708.016-10.058',
+  instagram:
+    'M8.667 12a3.333 3.333 0 1 1 6.667 0a3.333 3.333 0 0 1-6.667 0m-1.802 0a5.135 5.135 0 1 0 10.27 0a5.135 5.135 0 0 0-10.27 0m9.273-5.338a1.2 1.2 0 1 0 1.2-1.2a1.2 1.2 0 0 0-1.2 1.2M7.96 20.14c-.975-.045-1.505-.207-1.857-.344a3.1 3.1 0 0 1-1.15-.748a3.1 3.1 0 0 1-.748-1.15c-.138-.352-.3-.882-.344-1.857c-.049-1.054-.058-1.37-.058-4.04s.01-2.987.058-4.042c.044-.975.208-1.504.344-1.857c.181-.467.398-.8.748-1.15s.682-.567 1.15-.748c.352-.138.882-.3 1.857-.344C9.014 3.81 9.33 3.8 12 3.8s2.986.01 4.041.059c.975.044 1.504.208 1.857.344c.467.18.8.398 1.15.748s.567.683.749 1.15c.137.352.3.882.343 1.857c.049 1.055.059 1.37.059 4.041c0 2.67-.01 2.986-.059 4.041c-.044.975-.207 1.505-.343 1.857a3.1 3.1 0 0 1-.748 1.150a3.1 3.1 0 0 1-1.15.748c-.353.137-.883.3-1.858.344c-1.054.048-1.37.058-4.041.058c-2.67 0-2.986-.01-4.04-.058M7.877 2.06c-1.064.049-1.792.218-2.427.465a4.9 4.9 0 0 0-1.772 1.153A4.9 4.9 0 0 0 2.525 5.45c-.247.636-.416 1.363-.464 2.427C2.010 8.943 2 9.284 2 12s.011 3.057.06 4.123c.049 1.064.218 1.791.465 2.427a4.9 4.9 0 0 0 1.153 1.771a4.9 4.9 0 0 0 1.772 1.154c.636.247 1.363.416 2.427.464C8.944 21.988 9.284 22 12 22s3.057-.011 4.123-.06c1.064-.049 1.791-.218 2.427-.465a4.9 4.9 0 0 0 1.771-1.154a4.9 4.9 0 0 0 1.154-1.77c.247-.637.417-1.364.464-2.428c.049-1.067.06-1.407.06-4.123s-.011-3.057-.06-4.123c-.048-1.064-.217-1.792-.464-2.427a4.9 4.9 0 0 0-1.154-1.772a4.9 4.9 0 0 0-1.77-1.153c-.637-.247-1.364-.417-2.427-.464C15.057 2.012 14.717 2 12 2s-3.057.011-4.124.06',
+}
+
+const links = [
+  { href: 'https://t.me/fuglytatt', icon: icons.telegram, label: 'тг канал' },
+  { href: 'https://t.me/fuglyluv', icon: icons.telegram, label: 'тг личка' },
+  { href: 'https://www.tiktok.com/@fugly8182', icon: icons.tiktok, label: 'tiktok' },
+  { href: 'https://www.instagram.com/fuglytatt', icon: icons.instagram, label: 'instagram' },
+]
+
+const months = Array.from({ length: 12 }, (_, i) => `2026-${i + 1}.jpg`)
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fugly | календарь 2026</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <h2 style="text-align: center">Забавный календарь на 2026 год</h2>
+      <nav style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap">
+        {links.map((link) => (
+          <a href={link.href} style="display: flex; align-items: center" target="_blank">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d={link.icon} /></svg>
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </header>
+
+    <main>
+      <div class="image-container">
+        {months.map((file) => (
+          <a href={`/2026/${file}`} download>
+            <img src={`/2026/${file}`} style="margin-bottom: 0" alt={file} />
+          </a>
+        ))}
+      </div>
+      <div class="image-container">
+        <a href="/2026/2026.jpg" style="grid-column: 2" download>
+          <img src="/2026/2026.jpg" alt="2026" style="margin-bottom: 0" />
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+        <span></span>
+        <a href="https://github.com/oxalorg/sakura">sakura</a>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  a {
+    border-bottom: 0 !important;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.6rem;
+  }
+
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 560px) {
+    .image-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
